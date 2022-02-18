@@ -1,5 +1,7 @@
 package com.frankmoley.lil.designpatternsapp;
 
+import com.frankmoley.lil.designpatternsapp.prototype.ProtoFalse;
+import com.frankmoley.lil.designpatternsapp.prototype.ProtoTrue;
 import com.frankmoley.lil.designpatternsapp.singleton.SingA;
 import com.frankmoley.lil.designpatternsapp.singleton.SingB;
 import org.junit.Assert;
@@ -27,5 +29,20 @@ public class DesignPatternsAppApplicationTests {
         Assert.assertSame(singB1, singB2);
     }
 
+    @Autowired
+    ProtoTrue true1;
+    @Autowired
+    ProtoTrue true2;
+
+    @Autowired
+    ProtoFalse false1;
+    @Autowired
+    ProtoFalse false2;
+
+    @Test
+    public void testPrototypes(){
+        Assert.assertSame(false1, false2);
+        Assert.assertNotSame(true1, true2);
+    }
 }
 
